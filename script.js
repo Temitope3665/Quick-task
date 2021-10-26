@@ -2,7 +2,7 @@ var app = new Vue ({
     el: '#app',
     data: {
         name: 'Temitope',
-        address: 'Mile50 Abakaliki, Ebonyi State',
+        address: 'Abakaliki, Ebonyi State',
         occupation: 'Software Dev.',
         favFoods: [
             'Yam and Egg',
@@ -25,13 +25,22 @@ var app = new Vue ({
         listData: [],
         greeting: '',
         currentTime: new Date().getHours(),
-        fullTime: new Date().getHours() + ":" + new Date().getMinutes(),
-        greetings: null
+        fullTime: new Date().getHours() + ":" + new Date().getMinutes()
     }, 
+    computed: {
+        
+    },
     methods : {
         submit() {
             this.listData.push({...this.formData})
-            console.log(this.formData)
+            this.clearform()
+        },
+
+        clearform() {
+            this.formData.name = '',
+            this.formData.username = '',
+            this.formData.email = '',
+            this.formData.phone = ''
         }
     }
 })

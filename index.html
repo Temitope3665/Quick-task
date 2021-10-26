@@ -15,6 +15,16 @@
 <body>
 
     <div id="app">
+
+        <!-- Say greetings -->
+
+        <div class="greetings">
+            <p class="greeting-text" v-if= "currentTime < 12">Hey Good morning, the time is {{ fullTime }} am</p>
+            <p class="greeting-text" v-else-if="13 < currentTime < 18">Hey Good afternoon, the time is {{ fullTime }} pm</p>
+            <p class="greeting-text" v-else-if="18 < currentTime < 24">Goodnight dearie, the time is {{ fullTime }} pm now</p>
+            <p class="greeting-text" v-else>Unfortunately, I don't know what time it is now</p>
+        </div>
+
         <table class="table-wrapper">
             <tr class="table-heading">
                 <th class="headings">Name</th>
@@ -90,17 +100,6 @@
             </div>
             <button class="submit-btn" @click.prevent='submit'>Submit</button>
         </form>
-
-        <!-- Say greetings -->
-
-        <div class="greetings">
-            <p class="greeting-text" v-if= "currentTime < 12">Hey Good morning, the time is {{ fullTime }} am</p>
-            <p class="greeting-text" v-else-if="13 < currentTime < 18">Hey Good afternoon, the time is {{ fullTime }} pm</p>
-            <p class="greeting-text" v-else-if="18 < currentTime < 24">Goodnight dearie, the time is {{ fullTime }} pm now</p>
-            <p class="greeting-text" v-else>Unfortunately, I don't know what time it is now</p>
-            <!-- <input class="greeting-input" type="text" placeholder="Greetings" v-model='greeting'> -->
-        </div>
-
     </div>
 
     
