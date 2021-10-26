@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Js - Task One</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+        <table class="table-wrapper">
+            <tr class="table-heading">
+                <th class="headings">Name</th>
+                <th class="headings">Address</th>
+                <th class="headings">Occupation</th>
+                <th class="headings">Fav. Foods</th>
+                <th class="headings">Fav. Countries</th>
+            </tr>
+            <tr class="table-body">
+                <td class="bodys">{{ name }}</td>
+                <td class="bodys">{{ address }}</td>
+                <td class="bodys">{{ occupation }}</td>
+                <td class="bodys">
+                    <ul class="list-items">
+                        <li v-for="favFood in favFoods">{{ favFood }}</li>
+                    </ul>
+                </td>
+                <td class="bodys">
+                    <ul class="list-items">
+                        <li v-for="favCountry in favCountries">{{ favCountry }}</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <!-- Form Output -->
+            <tr class="table-heading">
+                <th class="headings">Name</th>
+                <th class="headings">Username</th>
+                <th class="headings">Email</th>
+                <th class="headings">Phone No.</th>
+                <th class="headings"></th>
+            </tr>
+
+            <tr class="table-body">
+                <td class="bodys">
+                    <ul>
+                        <li v-for='list in listData'>{{list.name}}</li>
+                    </ul>
+                </td>
+                <td class="bodys">
+                    <ul>
+                        <li v-for='list in listData'>{{list.username}}</li>
+                    </ul>
+                </td>
+                <td class="bodys">
+                    <ul>
+                        <li v-for='list in listData'>{{list.email}}</li>
+                    </ul>
+                </td>
+                <td class="bodys">
+                    <ul>
+                        <li v-for='list in listData'>{{list.phone}}</li>
+                    </ul>
+                </td>
+                
+            </tr>
+        </table>
+
+            <!-- Form -->
+        <form>
+            <p class="form-text">Kindly fill in the form below</p>
+            <div class="form-wrapper">
+                <input type="text" class="form-control" placeholder="First name" v-model='formData.name'>
+            </div>
+            <div class="form-wrapper">
+                <input type="text" class="form-control" placeholder="Username" v-model='formData.username'>
+            </div>
+            <div class="form-wrapper">
+                <input type="email" class="form-control" placeholder="email" v-model='formData.email'>
+            </div>
+            <div class="form-wrapper">
+                <input type="tel" class="form-control" placeholder="Phone No." v-model='formData.phone'>
+            </div>
+            <button class="submit-btn" @click.prevent='submit'>Submit</button>
+        </form>
+
+        <!-- Say greetings -->
+
+        <div class="greetings">
+            <p class="greeting-text" v-if= "currentTime < 12">Hey Good morning, the time is {{ fullTime }} am</p>
+            <p class="greeting-text" v-else-if="13 < currentTime < 18">Hey Good afternoon, the time is {{ fullTime }} pm</p>
+            <p class="greeting-text" v-else-if="18 < currentTime < 24">Goodnight dearie, the time is {{ fullTime }} pm now</p>
+            <p class="greeting-text" v-else>Unfortunately, I don't know what time it is now</p>
+            <!-- <input class="greeting-input" type="text" placeholder="Greetings" v-model='greeting'> -->
+        </div>
+
+    </div>
+
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="script.js"></script>
+</html>
